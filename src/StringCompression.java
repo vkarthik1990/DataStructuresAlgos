@@ -1,3 +1,7 @@
+import netscape.security.UserTarget;
+
+import java.util.Stack;
+
 public class StringCompression {
 
     //Refference : https://www.youtube.com/watch?v=IhJgguNiYYk
@@ -22,10 +26,30 @@ public class StringCompression {
         return index;
     }
 
-    public static void main(String[] args){
-        String str="abcabadfg";
-        StringCompression obj=new StringCompression();
+    public static String compress(String s){
 
+        StringBuffer sb=new StringBuffer();
+        int count=0;
+        Character prevChar=null;
+        for(char c:s.toCharArray()){
+            if(count==0) sb.append(String.valueOf(c));
+           if(prevChar!=null && prevChar!=c){
+               sb.append(String.valueOf(count));
+               prevChar=c;
+               count=-1;
+           }
+            prevChar=c;
+            count++;
+        }
+
+
+
+        return sb.toString();
+    }
+    public static void main(String[] args){
+        String str="aaaabbbcccd";
+        StringCompression obj=new StringCompression();
+        System.out.println(compress(str));
         System.out.println(obj.compress(new char[] {'a','b','b','b','b','b','b'}));
 
     }

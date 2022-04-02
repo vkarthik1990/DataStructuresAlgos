@@ -3,7 +3,8 @@ import java.util.Arrays;
 public class Recursion {
 
     public static void main(String[] args){
-        System.out.println(fib(10));
+       System.out.println(fib(10));
+       System.out.println(nonRecursiveFib(10));
     }
 
     //Fibonacci series using recursion :
@@ -18,5 +19,22 @@ public class Recursion {
         printReversedLinkedList(head.next);
         System.out.println(head.val);
     }
+
+    public static int nonRecursiveFib(int n){
+        if(n<=1) return n;
+
+        int first=0;
+        int second=1;
+        int nth =1;
+
+        for(int i=2;i<=n;i++){
+            nth=first+second;
+            first=second;
+            second=nth;
+        }
+
+        return nth;
+    }
+
 
 }
