@@ -1,4 +1,4 @@
-package Goldman;
+package Sort;
 
 import java.util.Random;
 
