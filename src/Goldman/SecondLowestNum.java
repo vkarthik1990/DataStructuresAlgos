@@ -13,7 +13,6 @@ public class SecondLowestNum {
             }
             if( n<secondLowest && n>firstLowest ){
                secondLowest=n;
-
             }
         }
 
