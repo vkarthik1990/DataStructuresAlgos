@@ -52,6 +52,46 @@ public class StringCompression {
         System.out.println(compress(str));
         System.out.println(obj.compress(new char[] {'a','b','b','b','b','b','b'}));
 
+        String input = "AABBBCMMMAACCCCC";
+        System.out.println(compress_standatd_charted(input));
     }
+
+
+    // package whatever; // don't place package name!
+// Installed Libraries: JSON-Simple, JUNit 4, Apache Commons Lang3
+
+
+        // Input:  AABBBCMMMAACCCCC
+        // Output: A2B3C1M3A2C5
+        static String compress_standatd_charted(String s) {
+            StringBuffer sb =new StringBuffer();
+            Character prev=null;
+            int count=0;
+
+            if(s==null || s.isEmpty())return "";
+            for(char c:s.toCharArray()){
+
+                System.out.println("inp char: "+c);
+
+                if(count==0) sb.append(c);
+                if(prev!=null && prev!=c){
+                    sb.append(String.valueOf(count));
+                    sb.append(String.valueOf(c));
+                    System.out.println("cnt added:"+count);
+                    prev=c;
+                    count=0;
+                    System.out.println("char: "+c+" count:"+count);
+                }
+                prev=c;
+                count++;
+            }
+            sb.append(String.valueOf(count));
+            return sb.toString();
+        }
+
+
+
+
+
 
 }
