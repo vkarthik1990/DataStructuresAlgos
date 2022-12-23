@@ -25,7 +25,7 @@ public class BestStudentAvg {
 
     private static int findMaxAverage(String[][] input) {
         Integer max=Integer.MIN_VALUE;
-        Map<String,Student> map = new HashMap<>();
+        Map<String,Student> m   ap = new HashMap<>();
         for(String[] r: input) {
             if(map.containsKey(r[0])) {
                 Student t = map.get(r[0]);
